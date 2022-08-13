@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container">
+            <a class="navbar-brand " href="#"><img src="img/n.png" alt="logo" width="80"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fs-5">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a id="stilettos" class="dropdown-item" href="#">Stilettos</a></li>
+                            <li><a id="botas" class="dropdown-item" href="#">Botas</a></li>
+                            <li><a id="sandalias" class="dropdown-item" href="#">Sandalias</a></li>
+                            <li><a id="chatas" class="dropdown-item" href="#">Chatas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="contenedorCarrito" class="container mt-3">
+
+        <a type="button" class="float-end position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa-solid fa-cart-shopping h3 text-dark"></i>
+            <span id="cantidadProductos" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            +
+            </span>
+        </a>
+
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">CARRITO DE COMPRAS</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="contenedorModal" class="modal-body container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                
+                            </div>
+                            <div class="col-md-4">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container">
+                            <div class="row mx-auto">
+                                <div class="col-md-6">
+                                    <h3>Total: $ <span id="totalPagar">0</span></h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <button id="vaciarCarrito" type="button" class="btn btn-primary float-end"    onclick="vaciarCarrito()">Vaciar Carrito <i class="fa-solid fa-trash "></i></  button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <div id="contenedor-productos" class="row">
+
+        </div>
+    </main>
+
+    <footer class="container-fluid mt-5 bg-dark text-white text-center p-5" >
+        <h2>FOOTER EN CONSTRUCCION</h2>
+        <!-- <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+                <img src="img/n.png" alt="" width="80">
+            </div>
+            <div class="col-md-4">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
+            </div>
+        </div> -->
+    </footer>
+
+
+
+    <script src="https://kit.fontawesome.com/ab487c5b2d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
