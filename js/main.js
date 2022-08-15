@@ -146,12 +146,14 @@ function agregarAlStock(nombreProducto){
 function selectID(id){
     return document.getElementById(id);
 }
+
 const contenedor = selectID('contenedor-productos')
 const contenedorCarrito = selectID('contenedorCarrito')
 const contenedorModal = selectID('contenedorModal')
 const vaciarCarrito = selectID('vaciarCarrito')
 const cantidadProductosCarrito = selectID('cantidadProductos')
 const totalAPagar = selectID('totalPagar')
+
 
 // ARRAY DE PRODUCTOS EN CARRITO 
 
@@ -160,11 +162,12 @@ let carrito = []
 // RECORRO Y RENDERIZO ARRAY DE PRODUCTOS
 
 productos.forEach((x) => {
+
     const div = document.createElement('div')
     div.classList.add('col-md-3')
     div.innerHTML = `
             <div class="card mt-4 p-1" style="width: 18rem;">
-                <img src="${x.img}" class="card-img-top mx-auto d-block" alt="${x.categoria}">
+                <img src="${x.img}" class="card-img-top mx-auto d-block" alt="${x.categoria}" widht="284" heigth="284">
                 <div class="card-body">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
@@ -209,7 +212,7 @@ function actualizarCarrito(){
         html.classList.add('row')
         html.innerHTML = `
             <div class="col-md-3">
-                <img src="img/img.png" alt="" width="40">
+                <img src="img/img.png" alt="" width="60">
             </div>
             <div class="col-md-3">
                 <p>Cantidad: ${x.cantidad} </p>
@@ -225,7 +228,7 @@ function actualizarCarrito(){
 
         localStorage.setItem('carrito', JSON.stringify(carrito))
     })
-    cantidadProductosCarrito.innerText = carrito.length;
+    cantidadProductosCarrito.innerText = carrito.reduce((acc, x) => acc + x.cantidad, 0)
     totalAPagar.innerText = carrito.reduce((acc, x) => acc + x.precio, 0)
 }
 
@@ -235,6 +238,7 @@ function eliminarProducto(id){
     const item = carrito.find(x => x.id === id);
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1);
+    localStorage.removeItem('carrito')
     actualizarCarrito();
 }
 
