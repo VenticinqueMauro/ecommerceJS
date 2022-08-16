@@ -2,7 +2,7 @@ const productos = [
     {
         id: 1,
         marca: "vizzano",
-        categoria: "botas",
+        categoria: "Botas",
         precio: 11790,
         color:"marron",
         numero:34,
@@ -12,7 +12,7 @@ const productos = [
     {
         id: 2,
         marca: "ramarin",
-        categoria: "sandalias",
+        categoria: "Sandalias",
         precio: 8590,
         color:"jean",
         numero:36,
@@ -22,7 +22,7 @@ const productos = [
     {
         id: 3,
         marca: "ene",
-        categoria: "botas",
+        categoria: "Botas",
         precio: 12390,
         color:"gris",
         numero:38,
@@ -32,7 +32,7 @@ const productos = [
     {
         id: 4,
         marca: "vizzano",
-        categoria: "sandalias",
+        categoria: "Sandalias",
         precio: 7480,
         color:"roja",
         numero:36,
@@ -43,7 +43,7 @@ const productos = [
     {
         id: 5,
         marca: "varietta",
-        categoria: "stilettos",
+        categoria: "Stilettos",
         precio: 11290,
         color:"turquesa",
         numero:39,
@@ -53,7 +53,7 @@ const productos = [
     {
         id: 6,
         marca: "viuno",
-        categoria: "sandalias",
+        categoria: "Sandalias",
         precio: 9990,
         color:"amarillo",
         numero:36,
@@ -63,7 +63,7 @@ const productos = [
     {
         id: 7,
         marca: "varietta",
-        categoria: "sandalias",
+        categoria: "Sandalias",
         precio: 6490,
         color:"animal print",
         numero:37,
@@ -73,7 +73,7 @@ const productos = [
     {
         id: 8,
         marca: "beira rio",
-        categoria: "sandalias",
+        categoria: "Sandalias",
         precio: 4490,
         color:"negro",
         numero:40,
@@ -83,7 +83,7 @@ const productos = [
     {
         id: 9,
         marca: "varietta",
-        categoria: "stilettos",
+        categoria: "Stilettos",
         precio: 4490,
         color:"amarillo",
         numero:37,
@@ -93,7 +93,7 @@ const productos = [
     {
         id: 10,
         marca: "varietta",
-        categoria: "stilettos",
+        categoria: "Stilettos",
         precio: 4490,
         color:"animal print",
         numero:37,
@@ -103,7 +103,7 @@ const productos = [
     {
         id: 11,
         marca: "varietta",
-        categoria: "stilettos",
+        categoria: "Stilettos",
         precio: 12390,
         color:"fucsia",
         numero:37,
@@ -113,7 +113,7 @@ const productos = [
     {
         id: 12,
         marca: "vizzano",
-        categoria: "sandalias",
+        categoria: "Sandalias",
         precio: 4490,
         color:"blanco",
         numero:39,
@@ -219,7 +219,7 @@ function actualizarCarrito(){
                 Cantidad: <b> ${x.cantidad}</b> 
             </div>
             <div class="col-md-3 h6">
-                Valor: <b>$${x.precio}</b>
+                Precio: <b>$${x.precio}</b>
             </div>
             <div class="col-md-3">
                 <button class="border-0 bg-transparent" onclick="eliminarProducto(${x.id})"><i class="fa-regular fa-trash-can text-danger" style="margin-left:30px;"></i></button>
@@ -263,15 +263,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const productos_categorias = [];
 
+function listarPorCategoria(){
 productos.forEach(x => {
     if (!productos_categorias.includes(x.categoria)){
         productos_categorias.push(x.categoria)
+        }
+    })
+    for (let i = 0 ; i < productos_categorias.length ; i++){
+    let contenido = ""
+    contenido += `<li><a href="#" class="text-decoration-none text-dark p-2">${productos_categorias[i]}</a></li>`
+    categorias.innerHTML += (contenido)
     }
-})
+}
 
+const stilettos = []
 
-console.log(productos_categorias)
-
+listarPorCategoria()
 
 
 
@@ -289,7 +296,6 @@ console.log(productos_categorias)
 //     })
 // })
 
-// console.log(porCategoria)
 
 
 
