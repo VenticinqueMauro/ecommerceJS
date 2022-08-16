@@ -2,42 +2,42 @@ const productos = [
     {
         id: 1,
         marca: "vizzano",
-        categoria: "stilettos",
-        precio: 9790,
-        color:"negro",
+        categoria: "botas",
+        precio: 11790,
+        color:"marron",
         numero:34,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/botasvizMarron.jpg" 
     },
     {
         id: 2,
-        marca: "varietta",
-        categoria: "botas",
-        precio: 14590,
-        color:"blancas",
+        marca: "ramarin",
+        categoria: "sandalias",
+        precio: 8590,
+        color:"jean",
         numero:36,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/sandaliasRamarinJean.jpg" 
     },
     {
         id: 3,
-        marca: "vizzano",
+        marca: "ene",
         categoria: "botas",
         precio: 12390,
-        color:"negro",
+        color:"gris",
         numero:38,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/enereptilgris.jpg" 
     },
     {
         id: 4,
         marca: "vizzano",
         categoria: "sandalias",
         precio: 7480,
-        color:"animal print",
+        color:"roja",
         numero:36,
         cantidad:1,
-        img: "img/img.png"
+        img: "img/sandaliasVizRoja.jpg"
     },
 
     {
@@ -45,80 +45,80 @@ const productos = [
         marca: "varietta",
         categoria: "stilettos",
         precio: 11290,
-        color:"fucsia",
+        color:"turquesa",
         numero:39,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/stilettosVarTur.jpg" 
     },
     {
         id: 6,
-        marca: "moleca",
-        categoria: "botas",
+        marca: "viuno",
+        categoria: "sandalias",
         precio: 9990,
-        color:"violeta",
+        color:"amarillo",
         numero:36,
         cantidad:1,
-        img: "img/img.png"
+        img: "img/viaUnoTachoChinoAmarillo.jpg"
     },
     {
         id: 7,
-        marca: "moleca",
+        marca: "varietta",
         categoria: "sandalias",
         precio: 6490,
-        color:"rosa",
+        color:"animal print",
         numero:37,
         cantidad:1,
-        img: "img/img.png"
+        img: "img/sandaliasVarRojacnpelo.jpg"
     },
     {
         id: 8,
-        marca: "actvitta",
-        categoria: "chatas",
+        marca: "beira rio",
+        categoria: "sandalias",
         precio: 4490,
-        color:"azul",
+        color:"negro",
         numero:40,
         cantidad:1,
-        img: "img/img.png"
+        img: "img/beiraTachoChino.jpg"
     },
     {
         id: 9,
-        marca: "actvitta",
-        categoria: "chatas",
+        marca: "varietta",
+        categoria: "stilettos",
         precio: 4490,
-        color:"azul",
+        color:"amarillo",
         numero:37,
         cantidad:1,
-        img: "img/img.png"
+        img: "img/variettaamar.jpg"
     },
     {
         id: 10,
-        marca: "actvitta",
-        categoria: "chatas",
+        marca: "varietta",
+        categoria: "stilettos",
         precio: 4490,
-        color:"verde",
+        color:"animal print",
         numero:37,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/variettaanimalb.jpg" 
     },
     {
         id: 11,
-        marca: "vizzano",
-        categoria: "botas",
+        marca: "varietta",
+        categoria: "stilettos",
         precio: 12390,
-        color:"negro",
+        color:"fucsia",
         numero:37,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/variettafucsiaa.jpg" 
     },
     {
         id: 12,
-        marca: "actvitta",
-        categoria: "chatas",
+        marca: "vizzano",
+        categoria: "sandalias",
         precio: 4490,
-        color:"azul",
+        color:"blanco",
         numero:39,
         cantidad:1,
-        img: "img/img.png" 
+        img: "img/viztacop.jpg" 
     },
 ]
 
@@ -167,7 +167,7 @@ productos.forEach((x) => {
     div.classList.add('col-md-3')
     div.innerHTML = `
             <div class="card mt-4 p-1" style="width: 18rem;">
-                <img src="${x.img}" class="card-img-top mx-auto d-block" alt="${x.categoria}" widht="284" heigth="284">
+                <img src="${x.img}" class="card-img-top mx-auto d-block" alt="${x.categoria}" widht="200" heigth="200">
                 <div class="card-body">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
@@ -212,7 +212,7 @@ function actualizarCarrito(){
         html.classList.add('row')
         html.innerHTML = `
             <div class="col-md-3">
-                <img src="img/img.png" alt="" width="60">
+                <img src="${x.img}" alt="" width="60">
             </div>
             <div class="col-md-3">
                 <p>Cantidad: ${x.cantidad} </p>
