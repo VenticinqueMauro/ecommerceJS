@@ -153,6 +153,7 @@ const contenedorModal = selectID('contenedorModal')
 const vaciarCarrito = selectID('vaciarCarrito')
 const cantidadProductosCarrito = selectID('cantidadProductos')
 const totalAPagar = selectID('totalPagar')
+const categorias = selectID('categorias')
 
 
 // ARRAY DE PRODUCTOS EN CARRITO 
@@ -209,19 +210,19 @@ function actualizarCarrito(){
     contenedorModal.innerHTML = "";
     carrito.forEach((x) => {
         let html = document.createElement('div')
-        html.classList.add('row')
+        html.classList.add("row", "d-flex", "align-items-center", "justify-content-around")
         html.innerHTML = `
-            <div class="col-md-3">
+            <div class="col-md-3 h6">
                 <img src="${x.img}" alt="" width="60">
             </div>
-            <div class="col-md-3">
-                <p>Cantidad: ${x.cantidad} </p>
+            <div class="col-md-3 h6">
+                Cantidad: <b> ${x.cantidad}</b> 
+            </div>
+            <div class="col-md-3 h6">
+                Valor: <b>$${x.precio}</b>
             </div>
             <div class="col-md-3">
-                Precio: ${x.precio}
-            </div>
-            <div class="col-md-3">
-                <button class="border-0 bg-transparent" onclick="eliminarProducto(${x.id})"><i class="fa-regular fa-trash-can"></i></button>
+                <button class="border-0 bg-transparent" onclick="eliminarProducto(${x.id})"><i class="fa-regular fa-trash-can text-danger" style="margin-left:30px;"></i></button>
             </div>
         `
         contenedorModal.prepend(html)
@@ -258,6 +259,37 @@ document.addEventListener('DOMContentLoaded', () => {
         actualizarCarrito()
     }
 })
+
+
+const productos_categorias = [];
+
+productos.forEach(x => {
+    if (!productos_categorias.includes(x.categoria)){
+        productos_categorias.push(x.categoria)
+    }
+})
+
+
+console.log(productos_categorias)
+
+
+
+
+// let porCategoria = {};
+
+// productos.forEach( (x) => {
+//     if (!porCategoria.hasOwnProperty(x.categoria)){
+//         porCategoria[x.categoria] = {
+//             productosCategoria: []
+//         }
+//     }
+
+//     porCategoria[x.categoria].productosCategoria.push({
+//         categorias: x.categoria
+//     })
+// })
+
+// console.log(porCategoria)
 
 
 
