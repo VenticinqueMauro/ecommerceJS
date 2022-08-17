@@ -157,7 +157,7 @@ const categorias = selectID('categorias')
 
 
 
-const carrito = []
+let carrito = []
 
 const productos_categorias = [];
 
@@ -170,9 +170,9 @@ productos.forEach((x) => {
     }
 
     const div = document.createElement('div')
-    div.classList.add('col-md-3')
+    div.classList.add('col','col-md-3')
     div.innerHTML = `
-            <div class="card mt-4 p-1 border-0" style="width: 15rem;">
+            <div class="card mt-4 p-1 border-0 mx-auto" style="width: 15rem;">
                 <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
                 <div class="card-body text-center">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
@@ -243,17 +243,17 @@ function actualizarCarrito(){
         let html = document.createElement('div')
         html.classList.add("row", "d-flex", "align-items-center", "justify-content-around")
         html.innerHTML = `
-            <div class="col-md-3 h6">
+            <div class="col col-sm-3 h6">
                 <img src="${x.img}" alt="" width="60">
             </div>
-            <div class="col-md-3 h6">
+            <div class="col col-sm-3 h6">
                 Cantidad: <b> ${x.cantidad}</b> 
             </div>
-            <div class="col-md-3 h6">
+            <div class="col col-sm-3 h6">
                 Precio: <b>$${x.precio}</b>
             </div>
-            <div class="col-md-3">
-                <button class="border-0 bg-transparent" onclick="eliminarProducto(${x.id})"><i class="fa-regular fa-trash-can text-danger" style="margin-left:30px;"></i></button>
+            <div class="col col-sm-3">
+                <button class="border-0 bg-transparent" onclick="eliminarProducto(${x.id})"><i class="fa-regular fa-trash-can text-danger" ></i></button>
             </div>
         `
         contenedorModal.prepend(html)
@@ -269,7 +269,7 @@ function actualizarCarrito(){
 function eliminarProducto(id){
     Toastify({
         text: "Producto Eliminado",
-        duration: 2000,
+        duration: 1000,
         style: { 
             // background: "#ff000094",
             background: "linear-gradient(to right, #ff000079, red)",
@@ -339,13 +339,13 @@ function renderContacto(){
         <div class="modal-dialog">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">CONTACTO</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <label for="recipient-name" class="col-form-label">Alias:</label>
                             <input type="text" class="form-control" id="recipient-name">
                         </div>
                         <div class="mb-3">
@@ -353,14 +353,14 @@ function renderContacto(){
                             <input type="email" class="form-control" id="recipient-name">
                         </div>
                         <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Message:</label>
+                            <label for="message-text" class="col-form-label">Consulta:</label>
                             <textarea class="form-control" id="message-text"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar <i class="fa-solid fa-xmark"></i></button>
-                    <button type="button" class="btn btn-primary">Enviar <i class="fa-solid fa-envelope"></i></button>
+                    <button type="button" class="btn btn-primary">Enviar <i class="fa-solid fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>
@@ -413,6 +413,7 @@ function renderContacto(){
 //     `
 //     nos.append(nos)
 // }
+
 
 
 
