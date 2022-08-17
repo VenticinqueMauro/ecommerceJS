@@ -156,13 +156,18 @@ const totalAPagar = selectID('totalPagar')
 const categorias = selectID('categorias')
 
 
-// ARRAY DE PRODUCTOS EN CARRITO 
 
-let carrito = []
+const carrito = []
+
+const productos_categorias = [];
 
 // RECORRO Y RENDERIZO ARRAY DE PRODUCTOS
 
 productos.forEach((x) => {
+    
+    if (!productos_categorias.includes(x.categoria)){
+        productos_categorias.push(x.categoria)
+    }
 
     const div = document.createElement('div')
     div.classList.add('col-md-3')
@@ -185,6 +190,25 @@ productos.forEach((x) => {
         agregarAlCarrito(x.id)
     } )
 } )
+
+
+////////////////////////////////////////////////////////////////////
+// ORDENO POR CATEGORIA EN EL BOTON PRODUCTOS DEL NAVBAR
+
+
+for (let i = 0 ; i < productos_categorias.length ; i++){
+    let contenido = ""
+    contenido += `<li><a href="#" id="categoria${productos_categorias[i]}" class="text-decoration-none text-dark p-2">${productos_categorias[i]}<a></li>`
+    categorias.innerHTML += (contenido)
+}
+document.getElementById(`categoriaBotas`).addEventListener ('click', yella)
+document.getElementById(`categoriaStilettos`).addEventListener ('click', yella)
+document.getElementById(`categoriaSandalias`).addEventListener ('click', yella)
+
+function yella(){
+    console.log("HOLA!!")
+}
+////////////////////////////////////////////////////////////////////////
 
 // AGREGO PRODUCTOS AL CARRITO, EN CASO DE REPETIR ITEM LOS SUMO AL IGUAL QUE SU PRECIO.
 
@@ -284,39 +308,111 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 
-const productos_categorias = [];
 
-function listarPorCategoria(){
-productos.forEach(x => {
-    if (!productos_categorias.includes(x.categoria)){
-        productos_categorias.push(x.categoria)
-        }
-    })
-    for (let i = 0 ; i < productos_categorias.length ; i++){
-    let contenido = ""
-    contenido += `<li><a href="#" class="text-decoration-none text-dark p-2">${productos_categorias[i]}</a></li>`
-    categorias.innerHTML += (contenido)
+// CREO UNA COPIA DEL ARRAY DE PRODUCTOS PARA ORDENARLA SEGUN SU CATEGORIA(STILETTOS, BOTAS, SANDALIAS)
+
+const arrayCategorias = [...productos]
+
+arrayCategorias.sort((a, b) => {
+    if (a.categoria < b.categoria) {
+        return -1
     }
+    if (a.categoria > b.categoria) {
+        return 1
+    }
+    return 0;
+})
+
+
+
+// CONTACTO 
+
+const contacto = selectID('contacto')
+
+contacto.addEventListener ('click', renderContacto)
+
+function renderContacto(){
+    let contact = document.createElement('div')
+    contact.classList.add('container')
+    contact.innerHTML = `
+    <div class="modal fade" id="contact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="recipient-email" class="col-form-label">E-mail:</label>
+                            <input type="email" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar <i class="fa-solid fa-xmark"></i></button>
+                    <button type="button" class="btn btn-primary">Enviar <i class="fa-solid fa-envelope"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+    contacto.append(contact)
 }
 
 
-listarPorCategoria()
+// // NOSOTROS
 
+// const nosotros = selectID('nosotros')
 
+// nosotros.addEventListener('click', renderNosotros)
 
-// let porCategoria = {};
-
-// productos.forEach( (x) => {
-//     if (!porCategoria.hasOwnProperty(x.categoria)){
-//         porCategoria[x.categoria] = {
-//             productosCategoria: []
-//         }
-//     }
-
-//     porCategoria[x.categoria].productosCategoria.push({
-//         categorias: x.categoria
-//     })
-// })
+// function renderNosotros(){
+//     let nos = document.createElement('div')
+//     nos.classList.add('container')
+//     nos.innerHTML = `
+//     <div class="modal fade" id="nos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+//         <div class="modal-dialog">
+//             <div class="modal-content ">
+//                 <div class="modal-header">
+//                     <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
+//                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+//                 </div>
+//                 <div class="modal-body">
+//                     <form>
+//                         <div class="mb-3">
+//                             <label for="recipient-name" class="col-form-label">Name:</label>
+//                             <input type="text" class="form-control" id="recipient-name">
+//                         </div>
+//                         <div class="mb-3">
+//                             <label for="recipient-email" class="col-form-label">E-mail:</label>
+//                             <input type="email" class="form-control" id="recipient-name">
+//                         </div>
+//                         <div class="mb-3">
+//                             <label for="message-text" class="col-form-label">Message:</label>
+//                             <textarea class="form-control" id="message-text"></textarea>
+//                         </div>
+//                     </form>
+//                 </div>
+//                 <div class="modal-footer">
+//                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar <i class="fa-solid fa-xmark"></i></button>
+//                     <button type="button" class="btn btn-primary">Enviar <i class="fa-solid fa-envelope"></i></button>
+//                 </div>
+//             </div>
+//         </div>
+//     </div>
+//     `
+//     nos.append(nos)
+// }
 
 
 
