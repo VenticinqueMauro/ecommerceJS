@@ -178,7 +178,7 @@ productos.forEach((x) => {
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
                     <p class="card-text h3">$${x.precio}</p>
-                    <a id="btnAgregar${x.id}" href="#" class="btn btn-primary" ">Añadir al Carro</a>
+                    <a id="btnAgregar${x.id}" href="#" class="btn btn-primary" ">Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
                 </div>
             </div>
         `;
@@ -372,51 +372,24 @@ function renderContacto(){
 
 // // NOSOTROS
 
-// const nosotros = selectID('nosotros')
+const nosotros = selectID('nosotros')
 
-// nosotros.addEventListener('click', renderNosotros)
+nosotros.addEventListener('click', renderNosotros)
 
-// function renderNosotros(){
-//     let nos = document.createElement('div')
-//     nos.classList.add('container')
-//     nos.innerHTML = `
-//     <div class="modal fade" id="nos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-//         <div class="modal-dialog">
-//             <div class="modal-content ">
-//                 <div class="modal-header">
-//                     <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
-//                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-//                 </div>
-//                 <div class="modal-body">
-//                     <form>
-//                         <div class="mb-3">
-//                             <label for="recipient-name" class="col-form-label">Name:</label>
-//                             <input type="text" class="form-control" id="recipient-name">
-//                         </div>
-//                         <div class="mb-3">
-//                             <label for="recipient-email" class="col-form-label">E-mail:</label>
-//                             <input type="email" class="form-control" id="recipient-name">
-//                         </div>
-//                         <div class="mb-3">
-//                             <label for="message-text" class="col-form-label">Message:</label>
-//                             <textarea class="form-control" id="message-text"></textarea>
-//                         </div>
-//                     </form>
-//                 </div>
-//                 <div class="modal-footer">
-//                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar <i class="fa-solid fa-xmark"></i></button>
-//                     <button type="button" class="btn btn-primary">Enviar <i class="fa-solid fa-envelope"></i></button>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-//     `
-//     nos.append(nos)
-// }
-
-
-
-
-
-
-
+function renderNosotros(){
+    Swal.fire({
+        title: 'Te Preguntas quienes somos?',
+        imageUrl: '../img/family.gif',
+        imageWidth: 250 ,
+        imageHeigth: 100 ,
+        text: 'Somos un matrimonio tucumano que se dedica al rubro femenino desde hace 4 años. Sabemos QUE y COMO hacer felices a nuestras clientas! y claro eso viene acompañado siempre de Calidad, Glamour y un excelente precio de competencia. Te invitamos a que conozcas nuestros productos si aun no lo has hecho!!',
+        showClass: {
+        popup: 'animate__animated animate__zoomInDown'
+        },
+        hideClass: {
+        popup: 'animate__animated animate__zoomOut'
+        },
+        confirmButtonColor: '#0d6efd',
+        confirmButtonText: '<i class="fa fa-thumbs-up"></i> Genial!',
+    })
+}

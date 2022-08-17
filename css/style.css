@@ -1,8 +1,29 @@
-/* @import url('https://fonts.googleapis.com/css2? family= Montserrat:ital,wght@0,400;0,500;0,700;1,100;1,200;1,300;1,500;1,600;1,700;1,900 & display= intercambio');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,100;1,200;1,300;1,500;1,600;1,700;1,900&display=swap');
 
 body {
-    font-family:'Montserrat', sans-serif;
-    ;
+    font-family: 'Montserrat', sans-serif;
 }
- */
 
+
+
+.botn__whatsapp {
+    background-color: #17cb3e;
+    bottom: 35px;
+    right: 35px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 50%;
+    text-align: center;
+    position: fixed;
+    font-size: 30px;
+    color: #ffffff;
+    box-shadow: 0px 0px 5px #050709;
+    transition: 300ms;
+}
+
+.botn__whatsapp:hover {
+    color: #17cb3e;
+    background-color:#ffffff;
+    transform: scale(1.1);
+}
