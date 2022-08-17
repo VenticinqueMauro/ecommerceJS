@@ -379,7 +379,7 @@ nosotros.addEventListener('click', renderNosotros)
 function renderNosotros(){
     Swal.fire({
         title: 'Te Preguntas quienes somos?',
-        imageUrl: './img/family.gif',
+        imageUrl: 'img/family.gif',
         imageWidth: 250 ,
         imageHeigth: 100 ,
         text: 'Somos un matrimonio tucumano que se dedica al rubro femenino desde hace 4 años. Sabemos QUE y COMO hacer felices a nuestras clientas! y claro eso viene acompañado siempre de Calidad, Glamour y un excelente precio de competencia. Te invitamos a que conozcas nuestros productos si aun no lo has hecho!!',
