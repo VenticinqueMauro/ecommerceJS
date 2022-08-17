@@ -4,7 +4,16 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.marquee {
+    height: 25px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 500;
+}
 
+.spanMarquee {
+    color: #ffff00;
+}
 
 .botn__whatsapp {
     background-color: #17cb3e;
