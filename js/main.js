@@ -44,7 +44,7 @@ const productos = [
         id: 5,
         marca: "varietta",
         categoria: "Stilettos",
-        precio: 11290,
+        precio: 6290,
         color:"turquesa",
         numero:39,
         cantidad:1,
@@ -52,7 +52,7 @@ const productos = [
     },
     {
         id: 6,
-        marca: "viuno",
+        marca: "viauno",
         categoria: "Sandalias",
         precio: 9990,
         color:"amarillo",
@@ -64,7 +64,7 @@ const productos = [
         id: 7,
         marca: "varietta",
         categoria: "Sandalias",
-        precio: 6490,
+        precio: 8490,
         color:"animal print",
         numero:37,
         cantidad:1,
@@ -74,7 +74,7 @@ const productos = [
         id: 8,
         marca: "beira rio",
         categoria: "Sandalias",
-        precio: 4490,
+        precio: 7490,
         color:"negro",
         numero:40,
         cantidad:1,
@@ -84,7 +84,7 @@ const productos = [
         id: 9,
         marca: "varietta",
         categoria: "Stilettos",
-        precio: 4490,
+        precio: 6490,
         color:"amarillo",
         numero:37,
         cantidad:1,
@@ -94,7 +94,7 @@ const productos = [
         id: 10,
         marca: "varietta",
         categoria: "Stilettos",
-        precio: 4490,
+        precio: 5490,
         color:"animal print",
         numero:37,
         cantidad:1,
@@ -104,17 +104,17 @@ const productos = [
         id: 11,
         marca: "varietta",
         categoria: "Stilettos",
-        precio: 12390,
-        color:"fucsia",
+        precio: 6290,
+        color:"multicolor",
         numero:37,
         cantidad:1,
-        img: "img/variettafucsiaa.jpg" 
+        img: "img/variettamultic.jpg" 
     },
     {
         id: 12,
         marca: "vizzano",
         categoria: "Sandalias",
-        precio: 4490,
+        precio: 7480,
         color:"blanco",
         numero:39,
         cantidad:1,
@@ -167,9 +167,9 @@ productos.forEach((x) => {
     const div = document.createElement('div')
     div.classList.add('col-md-3')
     div.innerHTML = `
-            <div class="card mt-4 p-1" style="width: 18rem;">
-                <img src="${x.img}" class="card-img-top mx-auto d-block" alt="${x.categoria}" widht="200" heigth="200">
-                <div class="card-body">
+            <div class="card mt-4 p-1 border-0" style="width: 15rem;">
+                <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
+                <div class="card-body text-center">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
                     <p class="card-text h3">$${x.precio}</p>
@@ -189,6 +189,13 @@ productos.forEach((x) => {
 // AGREGO PRODUCTOS AL CARRITO, EN CASO DE REPETIR ITEM LOS SUMO AL IGUAL QUE SU PRECIO.
 
 function agregarAlCarrito(id){
+    Toastify({
+    gravity: "bottom",
+    position: "right",
+    text: "Producto Agregado",
+    duration: 2000,
+    style:{ borderRadius: "30px" }
+    }).showToast();
     const repetido = carrito.some((x) => x.id === id)
     if (repetido){
         const x = carrito.map (x => {
@@ -236,6 +243,15 @@ function actualizarCarrito(){
 // ELIMINAR INDIVIDUALMENTE CADA PRODUCTO DEL CARRITO 
 
 function eliminarProducto(id){
+    Toastify({
+        text: "Producto Eliminado",
+        duration: 2000,
+        style: { 
+            // background: "#ff000094",
+            background: "linear-gradient(to right, #ff000079, red)",
+            borderRadius: "30px"
+        },
+        }).showToast();
     const item = carrito.find(x => x.id === id);
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1);
@@ -246,6 +262,13 @@ function eliminarProducto(id){
 // ELIMINA LA TOTALIDAD DEL CARRITO
 
 vaciarCarrito.addEventListener('click', () => {
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'El Carrito fue vaciado con Exito!',
+        showConfirmButton: false,
+        timer: 1500
+    })
     carrito.length = 0;
     localStorage.removeItem('carrito')
     actualizarCarrito()
@@ -276,7 +299,6 @@ productos.forEach(x => {
     }
 }
 
-const stilettos = []
 
 listarPorCategoria()
 
