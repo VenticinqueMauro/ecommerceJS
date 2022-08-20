@@ -24,13 +24,13 @@
         <a class="navbar-brand" href="index.html"><img src="img/n.png" alt="logo" width="80"></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fs-5">
-                    <li class="nav-item">
+                    <li class="nav-item linkNav">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item linkNav">
                         <a id="nosotros" class="nav-link" href="#">Nosotros</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown linkNav">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false" data-bs-whatever="@getbootstrap">
                         Productos
@@ -39,10 +39,13 @@
                         
                     </ul>
                 </li>
-                <li id="contacto" class="nav-item">
-                    <a class="nav-link" type="button" >Contacto</a>
+                <li id="contacto" class="nav-item linkNav">
+                    <a class="nav-link " type="button" >Contacto</a>
                 </li>
             </ul>
+            <form class="d-flex" role="search">
+                <input id="buscador" class="form-control me-5 text-center" type="text" placeholder="Buscar" style="width: 130px;" >
+            </form>
             </div>
             <a type="button" class="float-end position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa-solid fa-cart-shopping h2 text-dark"></i>
@@ -95,7 +98,16 @@
 
 
     <footer class="container-fluid mt-5 bg-dark text-white text-center p-5" >
-        <h2>FOOTER EN CONSTRUCCION</h2>
+        <div class="row">
+            <div class="col-4">
+                <img src="img/compradora.gif" alt="" width="100">
+            </div>
+            <div class="col-4">
+                <h2>FOOTER EN CONSTRUCCION</h2>
+            </div>
+            <div class="col-4"></div>
+        </div>
+        
         <!-- <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 text-center">

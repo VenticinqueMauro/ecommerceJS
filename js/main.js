@@ -147,6 +147,7 @@ function selectID(id) {
     return document.getElementById(id);
 }
 
+const documento = document;
 const contenedor = selectID('contenedor-productos')
 const contenedorCarrito = selectID('contenedorCarrito')
 const contenedorModal = selectID('contenedorModal')
@@ -172,13 +173,13 @@ productos.forEach((x) => {
     const div = document.createElement('div')
     div.classList.add('col', 'col-md-3')
     div.innerHTML = `
-            <div class="card mt-4 p-1 border-0 mx-auto" style="width: 15rem;">
+            <div class="card mt-4 p-1 border-0 mx-auto producto" style="width: 15rem;">
                 <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
-                <div class="card-body text-center">
+                <div class="card-body text-center ">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
                     <p class="card-text h3">$${x.precio}</p>
-                    <a id="btnAgregar${x.id}" href="#" class="btn btn-primary" ">Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
+                    <a id="btnAgregar${x.id}" class="btn btn-primary" ">Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
                 </div>
             </div>
         `;
@@ -198,16 +199,16 @@ productos.forEach((x) => {
 
 for (let i = 0; i < productos_categorias.length; i++) {
     let contenido = ""
-    contenido += `<li><a href="#" id="categoria${productos_categorias[i]}" class="text-decoration-none text-dark p-2">${productos_categorias[i]}<a></li>`
+    contenido += `<li type="button" id="categoria${productos_categorias[i]}" class="text-decoration-none text-dark p-2">${productos_categorias[i]}</li>`
     categorias.innerHTML += (contenido)
 }
-document.getElementById(`categoriaBotas`).addEventListener('click', yella)
-document.getElementById(`categoriaStilettos`).addEventListener('click', yella)
-document.getElementById(`categoriaSandalias`).addEventListener('click', yella)
+// document.getElementById(`categoriaBotas`).addEventListener('click', prueba)
+// document.getElementById(`categoriaStilettos`).addEventListener('click', prueba)
+// document.getElementById(`categoriaSandalias`).addEventListener('click', prueba)
 
-function yella() {
-    console.log("HOLA!!")
-}
+
+
+
 ////////////////////////////////////////////////////////////////////////
 
 // AGREGO PRODUCTOS AL CARRITO, EN CASO DE REPETIR ITEM LOS SUMO AL IGUAL QUE SU PRECIO.
@@ -323,6 +324,20 @@ arrayCategorias.sort((a, b) => {
     return 0;
 })
 
+// FILTRO DE BUSQUEDA
+
+document.addEventListener("keyup", (e)=> {
+
+    if (e.target.value == "Esc")e.target.value = "";
+
+    if (e.target.matches('#buscador')){
+        document.querySelectorAll(".producto").forEach(x => {
+            x.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                ? x.classList.remove("filtro")
+                : x.classList.add("filtro")
+        })
+    }
+})
 
 
 // CONTACTO 
@@ -370,7 +385,7 @@ function renderContacto() {
         confirmButtonText:
             '<i class="fa-solid fa-paper-plane"></i> Enviar!',
         confirmButtonAriaLabel: 'Enviar Consulta',
-        confirmButtonColor: '#0d6efd',
+        confirmButtonColor: '#0d6efd'
     })
 }
 
