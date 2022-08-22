@@ -45,7 +45,7 @@ body {
 
 .inputName {
     width: auto;
-    color: white;
+    color: #000;
     font-size: inherit;
     font-family: inherit;
     /* background-color: hsl(236, 32%, 26%); */
@@ -126,6 +126,8 @@ span {
 
 /* NAVBAR */
 
+
+
 .linkNav {
     position: relative;
 }
@@ -151,5 +153,18 @@ span {
 
 .filtro {
     display: none;
+    
 }
 
+/* FOOTER  */
+
+
+.iconRed {
+    padding-left: 10px;
+    color: #fff;
+    transition: 400ms;
+}
+
+.iconRed:hover {
+    transform: scale(1.1);
+}

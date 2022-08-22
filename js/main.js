@@ -158,21 +158,25 @@ const categorias = selectID('categorias')
 
 
 
+
 let carrito = []
 
 const productos_categorias = [];
 
 // RECORRO Y RENDERIZO ARRAY DE PRODUCTOS
 
-productos.forEach((x) => {
+function createCards(array) {
 
-    if (!productos_categorias.includes(x.categoria)) {
-        productos_categorias.push(x.categoria)
-    }
+    array.forEach((x) => {
 
-    const div = document.createElement('div')
-    div.classList.add('col', 'col-md-3')
-    div.innerHTML = `
+        if (!productos_categorias.includes(x.categoria)) {
+            productos_categorias.push(x.categoria)
+
+        }
+
+        const div = document.createElement('div')
+        div.classList.add('col', 'col-md-3', 'renderCard')
+        div.innerHTML = `
             <div class="card mt-4 p-1 border-0 mx-auto producto" style="width: 15rem;">
                 <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
                 <div class="card-body text-center ">
@@ -184,32 +188,28 @@ productos.forEach((x) => {
             </div>
         `;
 
-    contenedor.prepend(div);
+        contenedor.prepend(div);
 
-    const btnCarrito = selectID(`btnAgregar${x.id}`)
-    btnCarrito.addEventListener('click', () => {
-        agregarAlCarrito(x.id)
+        const btnCarrito = selectID(`btnAgregar${x.id}`)
+        btnCarrito.addEventListener('click', () => {
+            agregarAlCarrito(x.id)
+        })
     })
-})
+}
 
-
-////////////////////////////////////////////////////////////////////
-// ORDENO POR CATEGORIA EN EL BOTON PRODUCTOS DEL NAVBAR // FALTA COMPLETAR
+createCards(productos)
 
 
 for (let i = 0; i < productos_categorias.length; i++) {
     let contenido = ""
-    contenido += `<li type="button" id="categoria${productos_categorias[i]}" class="text-decoration-none text-dark p-2">${productos_categorias[i]}</li>`
-    categorias.innerHTML += (contenido)
+    contenido += `<li type="button" id="categoria${productos_categorias[i]}" class="text-decoration-none text-dark p-2" onclick="btnCategoria(${productos_categorias[i]})">${productos_categorias[i]}</li>`
+    categorias.innerHTML += contenido
+
 }
-// document.getElementById(`categoriaBotas`).addEventListener('click', prueba)
-// document.getElementById(`categoriaStilettos`).addEventListener('click', prueba)
-// document.getElementById(`categoriaSandalias`).addEventListener('click', prueba)
 
 
 
 
-////////////////////////////////////////////////////////////////////////
 
 // AGREGO PRODUCTOS AL CARRITO, EN CASO DE REPETIR ITEM LOS SUMO AL IGUAL QUE SU PRECIO.
 
@@ -324,13 +324,23 @@ arrayCategorias.sort((a, b) => {
     return 0;
 })
 
+const Sandalias = arrayCategorias.filter(x => x.categoria == "Sandalias")
+const Stilettos = arrayCategorias.filter(x => x.categoria == "Stilettos")
+const Botas = arrayCategorias.filter(x => x.categoria == "Botas")
+
+function btnCategoria(array) {
+    contenedor.innerHTML = ""
+    createCards(array)
+}
+
+
 // FILTRO DE BUSQUEDA
 
-document.addEventListener("keyup", (e)=> {
+document.addEventListener("keyup", (e) => {
 
-    if (e.target.value == "Esc")e.target.value = "";
+    if (e.target.value == "Esc") e.target.value = "";
 
-    if (e.target.matches('#buscador')){
+    if (e.target.matches('#buscador')) {
         document.querySelectorAll(".producto").forEach(x => {
             x.textContent.toLowerCase().includes(e.target.value.toLowerCase())
                 ? x.classList.remove("filtro")
@@ -340,54 +350,101 @@ document.addEventListener("keyup", (e)=> {
 })
 
 
-// CONTACTO 
+// CONTACTO + VALIDACION FORMULARIO
 
 const contacto = selectID('contacto')
 
-contacto.addEventListener('click', renderContacto)
+function validarFormContacto() {
+    const nombre = document.getElementById('inputNombre').value
+    const nombreError = document.getElementById('inputNombreError')
+    const email = document.getElementById('inputEmail').value
+    const emailError = document.getElementById('inputEmailError')
+    const textArea = document.getElementById('textArea').value
+    const textAreaError = document.getElementById('textAreaError')
 
-function renderContacto() {
-    Swal.fire({
-        imageUrl: 'img/mail.gif',
-        imageAlt: 'imagen de contacto',
-        imageWidth: 150,
-        html: `
-        
+    if (nombre.trim() == "" || nombre.length == 0 || nombre == null) {
+        nombreError.innerHTML = "Falta Completar Campo Nombre";
+        return false
+    } else {
+        nombreError.innerHTML = ""
+    }
 
-        <div class="mb-3 text-start containerName">
-            <label  class="form-label"></label>
-            <input type="name" class="inputName"  placeholder="Alias">
-            <span class="bottom"></span>
-            <span class="right"></span>
-            <span class="top"></span>
-            <span class="left"></span>
-            
-        </div>
-        <div class="containerName text-start">
-            <label  class="form-label"></label>
-            <input type="email" class="inputName"  placeholder="name@example.com">
-            <span class="bottom"></span>
-            <span class="right"></span>
-            <span class="top"></span>
-            <span class="left"></span>      
-        </div>
-        <div class="mb-3 text-start containerName" style="margin-top: 15px;">
-            <label class="form-label"></label>
-            <textarea class="inputName"  rows="3" placeholder="Mensaje"></textarea>
-            <span class="bottom"></span>
-            <span class="right"></span>
-            <span class="top"></span>
-            <span class="left"></span>
-        </div>
-        `,
-        showCancelButton: false,
-        focusConfirm: false,
-        confirmButtonText:
-            '<i class="fa-solid fa-paper-plane"></i> Enviar!',
-        confirmButtonAriaLabel: 'Enviar Consulta',
-        confirmButtonColor: '#0d6efd'
+    if (email.trim() == "" || email.length == 0 || email == null) {
+        emailError.innerHTML = "Falta Completar Campo Email";
+        return false
+    } else if (!email.includes("@") || !email.includes(".")) {
+        emailError.innerHTML = "Ingrese un mail Valido"
+        return false
+    } else {
+        emailError.innerHTML = ""
+    }
+
+    if (textArea.trim() == "" || textArea.length < 10 || textArea == null) {
+        textAreaError.innerHTML = "Complete su mensaje";
+        return false
+    } else {
+        textAreaError.innerHTML = ""
+    }
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
     })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'Mensaje enviado Muchas Gracias!'
+    })
+
 }
+
+
+// function renderContacto() {
+//     Swal.fire({
+//         imageUrl: 'img/mail.gif',
+//         imageAlt: 'imagen de contacto',
+//         imageWidth: 150,
+//         html: `
+
+
+//         <div class="mb-3 text-start containerName">
+//             <label  class="form-label"></label>
+//             <input id="inputNombre" type="name" class="inputName"  placeholder="Alias" >
+//             <span class="bottom"></span>
+//             <span class="right"></span>
+//             <span class="top"></span>
+//             <span class="left"></span>
+//         </div>
+//         <div id="inputNombreError" class="text-danger"></div>
+//         <div class="containerName text-start">
+//             <label class="form-label"></label>
+//             <input id="inputEmail" type="email" class="inputName"  placeholder="name@example.com">
+//             <span class="bottom"></span>
+//             <span class="right"></span>
+//             <span class="top"></span>
+//             <span class="left"></span>      
+//         </div>
+//         <div id="inputEmailError" class="text-danger"></div>
+//         <div class="mb-3 text-start containerName" style="margin-top: 15px;">
+//             <label class="form-label"></label>
+//             <textarea id="textArea" class="inputName"  rows="3" placeholder="Mensaje"></textarea>
+//             <span class="bottom"></span>
+//             <span class="right"></span>
+//             <span class="top"></span>
+//             <span class="left"></span>
+//         </div>
+//         `,
+//         showCancelButton: false,
+//         focusConfirm: true,
+//         confirmButtonText:
+//             '<i id="botonEnviar" type="button" class="fa-solid fa-paper-plane" onload="validarFormContacto()" ></i> Enviar!',
+//         confirmButtonAriaLabel: 'Enviar Consulta',
+//         confirmButtonColor: '#0d6efd',
+//     })
+// }
 
 
 // NOSOTROS
@@ -412,3 +469,9 @@ function renderNosotros() {
         confirmButtonText: '<i class="fa fa-thumbs-up"></i> Genial!',
     })
 }
+
+
+
+
+
+

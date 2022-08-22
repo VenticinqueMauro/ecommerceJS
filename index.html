@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -13,15 +13,18 @@
 </head>
 
 <body>
-        <marquee class="marquee" direction="right" scrollamount="10"><p>Gral Paz 969 Depto 303 San Miguel de Tucuman <b class="spanMarquee">|</b> 20% Off en Efectivo <b class="spanMarquee">|</b> Envios a todo el pais</p></marquee>
+    <marquee class="marquee" direction="right" scrollamount="10">
+        <p>Gral Paz 969 Depto 303 San Miguel de Tucuman <b class="spanMarquee">|</b> 20% Off en Efectivo <b
+                class="spanMarquee">|</b> Envios a todo el pais</p>
+    </marquee>
     <nav class="navbar navbar-expand-lg bg-transparent">
         <div class="container">
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <b class="navbar-toggler-icon"></b>
-        </button>
-        <a class="navbar-brand" href="index.html"><img src="img/n.png" alt="logo" width="80"></a>
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <b class="navbar-toggler-icon"></b>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="img/n.png" alt="logo" width="80"></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fs-5">
                     <li class="nav-item linkNav">
@@ -32,32 +35,83 @@
                     </li>
                     <li class="nav-item dropdown linkNav">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false" data-bs-whatever="@getbootstrap">
-                        Productos
-                    </a>
-                    <ul id="categorias" class="dropdown-menu">
-                        
-                    </ul>
-                </li>
-                <li id="contacto" class="nav-item linkNav">
-                    <a class="nav-link " type="button" >Contacto</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input id="buscador" class="form-control me-5 text-center" type="text" placeholder="Buscar" style="width: 130px;" >
-            </form>
+                            aria-expanded="false" data-bs-whatever="@getbootstrap">
+                            Productos
+                        </a>
+                        <ul id="categorias" class="dropdown-menu">
+
+                        </ul>
+                    </li>
+                    <li id="contacto" class="nav-item linkNav">
+                        <a class="nav-link " type="button" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Contacto</a>
+                    </li>
+
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header d-block mx-auto">
+                                    <img src="img/mail.gif" alt="Email" class="modal-title" id="exampleModalLabel" width="150">
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3 text-start containerName">
+                                        <label class="form-label"></label>
+                                        <input id="inputNombre" type="name" class="inputName" placeholder="Alias">
+                                        <span class="bottom"></span>
+                                        <span class="right"></span>
+                                        <span class="top"></span>
+                                        <span class="left"></span>
+                                    </div>
+                                    <div id="inputNombreError" class="text-danger h6"></div>
+                                    <div class="containerName text-start">
+                                        <label class="form-label"></label>
+                                        <input id="inputEmail" type="email" class="inputName"
+                                            placeholder="name@example.com">
+                                        <span class="bottom"></span>
+                                        <span class="right"></span>
+                                        <span class="top"></span>
+                                        <span class="left"></span>
+                                    </div>
+                                    <div id="inputEmailError" class="text-danger h6"></div>
+                                    <div class="mb-3 text-start containerName" style="margin-top: 15px;">
+                                        <label class="form-label"></label>
+                                        <textarea id="textArea" class="inputName" rows="3"
+                                            placeholder="Mensaje"></textarea>
+                                        <span class="bottom"></span>
+                                        <span class="right"></span>
+                                        <span class="top"></span>
+                                        <span class="left"></span>
+                                    </div>
+                                    <div id="textAreaError" class="text-danger h6"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" onclick="validarFormContacto()" ><i id="botonEnviar" type="button" class="fa-solid fa-paper-plane"  ></i> Enviar!</button>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="buscador" class="form-control me-5 text-center" type="text" placeholder="Buscar"
+                        style="width: 130px;">
+                </form>
             </div>
             <a type="button" class="float-end position-relative" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <i class="fa-solid fa-cart-shopping h2 text-dark"></i>
-                <span id="cantidadProductos" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-                +
+                <span id="cantidadProductos"
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+                    +
                 </span>
             </a>
         </div>
     </nav>
     <div id="contenedorCarrito" class="container mt-3">
 
-        
+
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -66,19 +120,21 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div id="contenedorModal" class="modal-body container">
-                        
+
                     </div>
                     <div class="modal-footer">
                         <div class="container">
                             <div class="row">
                                 <div class="col-4 text-start p-2">
-                                    <button id="vaciarCarrito" type="button" class="btn btn-danger">Vaciar <i class="fa-solid fa-trash"></i></button>
+                                    <button id="vaciarCarrito" type="button" class="btn btn-danger">Vaciar <i
+                                            class="fa-solid fa-trash"></i></button>
                                 </div>
                                 <div class="col-4 text-center p-2">
                                     <h3 class="h5">Total: <b>$<b id="totalPagar">0</b></b></h3>
                                 </div>
                                 <div class="col-4 text-end p-2">
-                                    <button type="button" class="btn btn-success " >Comprar <i class="fa-brands fa-shopify"></i></button>
+                                    <button type="button" class="btn btn-success ">Comprar <i
+                                            class="fa-brands fa-shopify"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -94,20 +150,22 @@
         </div>
     </main>
 
-    <a href="https://wa.me/+5493816160976/?text=Hola%20Mauro!%20estoy%20viendo%20tu%20proyecto%20final." class="botn__whatsapp" target="_blank"><i class="fa-brands fa-whatsapp botn__whatsapp-logo"></i></a>
+    <a href="https://wa.me/+5493816160976/?text=Hola%20Mauro!%20estoy%20viendo%20tu%20proyecto%20final."
+        class="botn__whatsapp" target="_blank"><i class="fa-brands fa-whatsapp botn__whatsapp-logo"></i></a>
 
 
-    <footer class="container-fluid mt-5 bg-dark text-white text-center p-5" >
+    <footer class="container-fluid mt-5 bg-dark text-white text-center">
         <div class="row">
-            <div class="col-4">
-                <img src="img/compradora.gif" alt="" width="100">
-            </div>
-            <div class="col-4">
-                <h2>FOOTER EN CONSTRUCCION</h2>
+            <div class="col-4"></div>
+            <div class="col-4 p-5 h4 redes">
+                <a href=""><i class="iconRed fa-brands fa-github"></i></a>
+                <a href=""><i class="iconRed fa-brands fa-linkedin-in"></i></a>
+                <a href=""><i class="iconRed fa-brands fa-twitter"></i></a>
+                <a href=""><i class="iconRed fa-solid fa-envelope"></i></a>
             </div>
             <div class="col-4"></div>
         </div>
-        
+
         <!-- <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 text-center">
