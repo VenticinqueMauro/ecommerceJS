@@ -352,6 +352,7 @@ document.addEventListener("keyup", (e) => {
 
 // CONTACTO + VALIDACION FORMULARIO
 
+
 const contacto = selectID('contacto')
 
 function validarFormContacto() {
@@ -400,51 +401,6 @@ function validarFormContacto() {
     })
 
 }
-
-
-// function renderContacto() {
-//     Swal.fire({
-//         imageUrl: 'img/mail.gif',
-//         imageAlt: 'imagen de contacto',
-//         imageWidth: 150,
-//         html: `
-
-
-//         <div class="mb-3 text-start containerName">
-//             <label  class="form-label"></label>
-//             <input id="inputNombre" type="name" class="inputName"  placeholder="Alias" >
-//             <span class="bottom"></span>
-//             <span class="right"></span>
-//             <span class="top"></span>
-//             <span class="left"></span>
-//         </div>
-//         <div id="inputNombreError" class="text-danger"></div>
-//         <div class="containerName text-start">
-//             <label class="form-label"></label>
-//             <input id="inputEmail" type="email" class="inputName"  placeholder="name@example.com">
-//             <span class="bottom"></span>
-//             <span class="right"></span>
-//             <span class="top"></span>
-//             <span class="left"></span>      
-//         </div>
-//         <div id="inputEmailError" class="text-danger"></div>
-//         <div class="mb-3 text-start containerName" style="margin-top: 15px;">
-//             <label class="form-label"></label>
-//             <textarea id="textArea" class="inputName"  rows="3" placeholder="Mensaje"></textarea>
-//             <span class="bottom"></span>
-//             <span class="right"></span>
-//             <span class="top"></span>
-//             <span class="left"></span>
-//         </div>
-//         `,
-//         showCancelButton: false,
-//         focusConfirm: true,
-//         confirmButtonText:
-//             '<i id="botonEnviar" type="button" class="fa-solid fa-paper-plane" onload="validarFormContacto()" ></i> Enviar!',
-//         confirmButtonAriaLabel: 'Enviar Consulta',
-//         confirmButtonColor: '#0d6efd',
-//     })
-// }
 
 
 // NOSOTROS
