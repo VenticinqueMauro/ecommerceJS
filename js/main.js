@@ -183,7 +183,7 @@ function createCards(array) {
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
                     <p class="card-text h3">$${x.precio}</p>
-                    <a id="btnAgregar${x.id}" class="btn btn-primary" ">Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
+                    <a id="btnAgregar${x.id}" class="btn btnProductos" style="background-color:#F10088; border: solid #F10088; color:#fff; box-shadow: 3px 5px 5px #808080;" >Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
                 </div>
             </div>
         `;
@@ -202,12 +202,10 @@ createCards(productos)
 
 for (let i = 0; i < productos_categorias.length; i++) {
     let contenido = ""
-    contenido += `<li type="button" id="categoria${productos_categorias[i]}" class="text-decoration-none text-dark p-2" onclick="btnCategoria(${productos_categorias[i]})">${productos_categorias[i]}</li>`
+    contenido += `<li><a type="button" id="categoria${productos_categorias[i]}" class="dropdown-item" onclick="btnCategoria(${productos_categorias[i]})">${productos_categorias[i]}</a></li>`
     categorias.innerHTML += contenido
 
 }
-
-
 
 
 
@@ -421,7 +419,7 @@ function renderNosotros() {
         hideClass: {
             popup: 'animate__animated animate__zoomOut'
         },
-        confirmButtonColor: '#0d6efd',
+        confirmButtonColor: '#F10088',
         confirmButtonText: '<i class="fa fa-thumbs-up"></i> Genial!',
     })
 }
