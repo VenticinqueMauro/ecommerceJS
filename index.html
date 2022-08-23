@@ -40,59 +40,61 @@
                             Productos
                         </a>
                         <ul id="categorias" class="dropdown-menu">
-
+                            <li><a href="" class="dropdown-item" onclick="createCards(productos)">Todos</a></li>
                         </ul>
                     </li>
                     <li id="contacto" class="nav-item linkNav" >
-                        <a class="nav-link " type="button" data-bs-toggle="modal"
+                        <a id="contactoNavBar" class="nav-link " type="button" data-bs-toggle="modal"
                             data-bs-target="#contactos" >Contacto</a>
                     </li>
 
                     <div class="modal fade" id="contactos" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header d-block mx-auto">
-                                    <h3 class="text-center">Contacto!</h3>
-                                    <img src="img/mail.gif" alt="Email" class="modal-title" id="exampleModalLabel" width="200">
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mb-3 text-start containerName">
-                                        <label class="form-label"></label>
-                                        <input id="inputNombre" type="name" class="inputName" placeholder="Alias">
-                                        <span class="bottom"></span>
-                                        <span class="right"></span>
-                                        <span class="top"></span>
-                                        <span class="left"></span>
+                            <form action="https://formspree.io/f/moqbvelg" method="POST">
+                                <div class="modal-content">
+                                    <div class="modal-header d-block mx-auto ">
+                                        <h3 class="text-center">Contacto!</h3>
+                                        <img src="img/mail.gif" alt="Email" class="modal-title" id="exampleModalLabel" width="200">
                                     </div>
-                                    <div id="inputNombreError" class="text-danger h6"></div>
-                                    <div class="containerName text-start">
-                                        <label class="form-label"></label>
-                                        <input id="inputEmail" type="email" class="inputName"
-                                            placeholder="name@example.com">
-                                        <span class="bottom"></span>
-                                        <span class="right"></span>
-                                        <span class="top"></span>
-                                        <span class="left"></span>
+                                    <div class="modal-body" >
+                                        <div class="mb-3 text-start containerName">
+                                            <label class="form-label"></label>
+                                            <input id="inputNombre" type="name" class="inputName" placeholder="Alias">
+                                            <span class="bottom"></span>
+                                            <span class="right"></span>
+                                            <span class="top"></span>
+                                            <span class="left"></span>
+                                        </div>
+                                        <div id="inputNombreError" class="text-danger h6"></div>
+                                        <div class="containerName text-start">
+                                            <label class="form-label"></label>
+                                            <input id="inputEmail" type="email" name="email" class="inputName"
+                                                placeholder="name@example.com">
+                                            <span class="bottom"></span>
+                                            <span class="right"></span>
+                                            <span class="top"></span>
+                                            <span class="left"></span>
+                                        </div>
+                                        <div id="inputEmailError" class="text-danger h6"></div>
+                                        <div class="mb-3 text-start containerName" style="margin-top: 15px;">
+                                            <label class="form-label"></label>
+                                            <textarea id="textArea" class="inputName" rows="3"
+                                                placeholder="Mensaje" name="message"></textarea>
+                                            <span class="bottom"></span>
+                                            <span class="right"></span>
+                                            <span class="top"></span>
+                                            <span class="left"></span>
+                                        </div>
+                                        <div id="textAreaError" class="text-danger h6"></div>
                                     </div>
-                                    <div id="inputEmailError" class="text-danger h6"></div>
-                                    <div class="mb-3 text-start containerName" style="margin-top: 15px;">
-                                        <label class="form-label"></label>
-                                        <textarea id="textArea" class="inputName" rows="3"
-                                            placeholder="Mensaje"></textarea>
-                                        <span class="bottom"></span>
-                                        <span class="right"></span>
-                                        <span class="top"></span>
-                                        <span class="left"></span>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary" onclick="validarFormContacto()" style="background-color:#F10088; border: solid #F10088;"><i id="botonEnviar"  class="fa-solid fa-paper-plane"  ></i> Enviar!</button>
+                                        <button type="button" class="btn btn-danger"
+                                            data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
                                     </div>
-                                    <div id="textAreaError" class="text-danger h6"></div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" onclick="validarFormContacto()" style="background-color:#F10088; border: solid #F10088;"><i id="botonEnviar" type="button" class="fa-solid fa-paper-plane"  ></i> Enviar!</button>
-                                    <button type="button" class="btn btn-danger"
-                                        data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
-                                </div>
-                            </div>
+                            </form>    
                         </div>
                     </div>
 

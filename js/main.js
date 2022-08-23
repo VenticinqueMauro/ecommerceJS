@@ -217,7 +217,10 @@ function agregarAlCarrito(id) {
         position: "right",
         text: "Producto Agregado",
         duration: 2000,
-        style: { borderRadius: "30px" }
+        style: { 
+        borderRadius: "30px",
+        background: "linear-gradient(to right, #17cb3e, green)",
+    }
     }).showToast();
     const repetido = carrito.some((x) => x.id === id)
     if (repetido) {
@@ -353,6 +356,7 @@ document.addEventListener("keyup", (e) => {
 
 const contacto = selectID('contacto')
 
+
 function validarFormContacto() {
     const nombre = document.getElementById('inputNombre').value
     const nombreError = document.getElementById('inputNombreError')
@@ -360,6 +364,7 @@ function validarFormContacto() {
     const emailError = document.getElementById('inputEmailError')
     const textArea = document.getElementById('textArea').value
     const textAreaError = document.getElementById('textAreaError')
+    
 
     if (nombre.trim() == "" || nombre.length == 0 || nombre == null) {
         nombreError.innerHTML = "Falta Completar Campo Nombre";
@@ -378,7 +383,7 @@ function validarFormContacto() {
         emailError.innerHTML = ""
     }
 
-    if (textArea.trim() == "" || textArea.length < 10 || textArea == null) {
+    if (textArea.trim() == "" || textArea.length < 5 || textArea == null) {
         textAreaError.innerHTML = "Complete su mensaje";
         return false
     } else {
@@ -397,8 +402,10 @@ function validarFormContacto() {
         icon: 'success',
         title: 'Mensaje enviado Muchas Gracias!'
     })
-
 }
+
+
+
 
 
 // NOSOTROS
