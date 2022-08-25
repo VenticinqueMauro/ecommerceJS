@@ -51,7 +51,7 @@
                     <div class="modal fade" id="contactos" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
-                            <form action="https://formspree.io/f/moqbvelg" method="POST">
+                            <form id="form" action="https://formspree.io/f/moqbvelg" method="POST" onsubmit="handleSubmit()">
                                 <div class="modal-content">
                                     <div class="modal-header d-block mx-auto ">
                                         <h3 class="text-center">Contacto!</h3>
@@ -60,7 +60,7 @@
                                     <div class="modal-body" >
                                         <div class="mb-3 text-start containerName">
                                             <label class="form-label"></label>
-                                            <input id="inputNombre" type="name" class="inputName" placeholder="Alias">
+                                            <input id="inputNombre" type="name" class="inputName" placeholder="Alias" required>
                                             <span class="bottom"></span>
                                             <span class="right"></span>
                                             <span class="top"></span>
@@ -70,7 +70,7 @@
                                         <div class="containerName text-start">
                                             <label class="form-label"></label>
                                             <input id="inputEmail" type="email" name="email" class="inputName"
-                                                placeholder="name@example.com">
+                                                placeholder="name@example.com" required>
                                             <span class="bottom"></span>
                                             <span class="right"></span>
                                             <span class="top"></span>
@@ -80,7 +80,7 @@
                                         <div class="mb-3 text-start containerName" style="margin-top: 15px;">
                                             <label class="form-label"></label>
                                             <textarea id="textArea" class="inputName" rows="3"
-                                                placeholder="Mensaje" name="message"></textarea>
+                                                placeholder="Mensaje" name="message" required></textarea>
                                             <span class="bottom"></span>
                                             <span class="right"></span>
                                             <span class="top"></span>

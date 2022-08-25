@@ -365,7 +365,6 @@ function validarFormContacto() {
     const textArea = document.getElementById('textArea').value
     const textAreaError = document.getElementById('textAreaError')
     
-
     if (nombre.trim() == "" || nombre.length == 0 || nombre == null) {
         nombreError.innerHTML = "Falta Completar Campo Nombre";
         return false
@@ -402,6 +401,7 @@ function validarFormContacto() {
         icon: 'success',
         title: 'Mensaje enviado Muchas Gracias!'
     })
+
 }
 
 
