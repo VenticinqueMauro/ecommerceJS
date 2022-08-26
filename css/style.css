@@ -216,15 +216,17 @@ span {
 
 .iconRed {
     padding-left: 10px;
-    color: #FFF;
+    color: #7d7a7a;
     transition: 400ms;
 }
 
 .iconRed:hover {
     transform: scale(1.1);
+    color: #fff;
 }
 
 .redes a {
     padding: 0px 5px;
 }
+
 
