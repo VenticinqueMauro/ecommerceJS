@@ -7,7 +7,8 @@ const productos = [
         color: "marron",
         numero: 34,
         cantidad: 1,
-        img: "img/botasvizMarron.jpg"
+        img: "img/botasvizMarron.jpg",
+        destacado: true
     },
     {
         id: 2,
@@ -17,7 +18,8 @@ const productos = [
         color: "jean",
         numero: 36,
         cantidad: 1,
-        img: "img/sandaliasRamarinJean.jpg"
+        img: "img/sandaliasRamarinJean.jpg",
+        destacado: false
     },
     {
         id: 3,
@@ -27,7 +29,8 @@ const productos = [
         color: "gris",
         numero: 38,
         cantidad: 1,
-        img: "img/enereptilgris.jpg"
+        img: "img/enereptilgris.jpg",
+        destacado: false
     },
     {
         id: 4,
@@ -37,7 +40,8 @@ const productos = [
         color: "roja",
         numero: 36,
         cantidad: 1,
-        img: "img/sandaliasVizRoja.jpg"
+        img: "img/sandaliasVizRoja.jpg",
+        destacado: false
     },
 
     {
@@ -48,7 +52,8 @@ const productos = [
         color: "turquesa",
         numero: 39,
         cantidad: 1,
-        img: "img/stilettosVarTur.jpg"
+        img: "img/stilettosVarTur.jpg",
+        destacado: true
     },
     {
         id: 6,
@@ -58,7 +63,8 @@ const productos = [
         color: "amarillo",
         numero: 36,
         cantidad: 1,
-        img: "img/viaUnoTachoChinoAmarillo.jpg"
+        img: "img/viaUnoTachoChinoAmarillo.jpg",
+        destacado: true
     },
     {
         id: 7,
@@ -68,7 +74,8 @@ const productos = [
         color: "animal print",
         numero: 37,
         cantidad: 1,
-        img: "img/sandaliasVarRojacnpelo.jpg"
+        img: "img/sandaliasVarRojacnpelo.jpg",
+        destacado: false
     },
     {
         id: 8,
@@ -78,7 +85,8 @@ const productos = [
         color: "negro",
         numero: 40,
         cantidad: 1,
-        img: "img/beiraTachoChino.jpg"
+        img: "img/beiraTachoChino.jpg",
+        destacado: false
     },
     {
         id: 9,
@@ -88,7 +96,8 @@ const productos = [
         color: "amarillo",
         numero: 37,
         cantidad: 1,
-        img: "img/variettaamar.jpg"
+        img: "img/variettaamar.jpg",
+        destacado: false
     },
     {
         id: 10,
@@ -98,7 +107,8 @@ const productos = [
         color: "animal print",
         numero: 37,
         cantidad: 1,
-        img: "img/variettaanimalb.jpg"
+        img: "img/variettaanimalb.jpg",
+        destacado: false
     },
     {
         id: 11,
@@ -108,7 +118,8 @@ const productos = [
         color: "multicolor",
         numero: 37,
         cantidad: 1,
-        img: "img/variettamultic.jpg"
+        img: "img/variettamultic.jpg",
+        destacado: false
     },
     {
         id: 12,
@@ -118,7 +129,8 @@ const productos = [
         color: "blanco",
         numero: 39,
         cantidad: 1,
-        img: "img/viztacop.jpg"
+        img: "img/viztacop.jpg",
+        destacado: false
     },
 ]
 
@@ -183,7 +195,7 @@ function createCards(array) {
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
                     <h5>N${x.numero}-${x.color}</h5>
                     <p class="card-text h3">$${x.precio}</p>
-                    <a id="btnAgregar${x.id}" class="btn btnProductos" style="background-color:#F10088; border: solid #F10088; color:#fff; box-shadow: 3px 5px 5px #808080;" >Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
+                    <a id="btnAgregar${x.id}" class="btn btnProductos" style="background-color:#212529; border: solid #212529; color:#fff; box-shadow: 3px 5px 5px #808080;" >Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
                 </div>
             </div>
         `;
@@ -192,10 +204,13 @@ function createCards(array) {
 
         const btnCarrito = selectID(`btnAgregar${x.id}`)
         btnCarrito.addEventListener('click', () => {
-            agregarAlCarrito(x.id)
+        agregarAlCarrito(x.id)
+
         })
     })
 }
+
+// RENDERIZO PRODUCTOS
 
 createCards(productos)
 
@@ -217,10 +232,10 @@ function agregarAlCarrito(id) {
         position: "right",
         text: "Producto Agregado",
         duration: 2000,
-        style: { 
-        borderRadius: "30px",
-        background: "linear-gradient(to right, #17cb3e, green)",
-    }
+        style: {
+            borderRadius: "30px",
+            background: "linear-gradient(to right, #17cb3e, green)",
+        }
     }).showToast();
     const repetido = carrito.some((x) => x.id === id)
     if (repetido) {
@@ -351,6 +366,7 @@ document.addEventListener("keyup", (e) => {
 })
 
 
+
 // CONTACTO + VALIDACION FORMULARIO
 
 
@@ -364,7 +380,7 @@ function validarFormContacto() {
     const emailError = document.getElementById('inputEmailError')
     const textArea = document.getElementById('textArea').value
     const textAreaError = document.getElementById('textAreaError')
-    
+
     if (nombre.trim() == "" || nombre.length == 0 || nombre == null) {
         nombreError.innerHTML = "Falta Completar Campo Nombre";
         return false
@@ -405,9 +421,6 @@ function validarFormContacto() {
 }
 
 
-
-
-
 // NOSOTROS
 
 const nosotros = selectID('nosotros')
@@ -426,13 +439,50 @@ function renderNosotros() {
         hideClass: {
             popup: 'animate__animated animate__zoomOut'
         },
-        confirmButtonColor: '#F10088',
+        confirmButtonColor: '#212529',
         confirmButtonText: '<i class="fa fa-thumbs-up"></i> Genial!',
     })
 }
 
+// DESTACADOS
+
+let destacados = productos.filter(x => x.destacado == true)
 
 
+function renderDestacados(){
+    const contenedor = document.getElementById('destacado')
+    destacados.map(x => {
+        const div = document.createElement('div')
+        div.classList.add('col-md-4', 'renderCard')
+        div.innerHTML = `
+            <div class="card mt-4 p-1 border-0 mx-auto producto" style="width: 14rem; box-shadow:0px 0px 10px #000;" >
+                <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
+                <div class="card-body text-center ">
+                    <h5 class="card-title">${x.categoria}-${x.marca}</h5>
+                    <p class="card-text h3">$${x.precio}</p>
+                    <a id="btnAgregar${x.id}" class="btn btnProductos" style="background-color:#212529; border: solid #212529; color:#fff; box-shadow: 3px 5px 5px #808080;" >Lo quiero! <i class="fa-solid fa-heart-circle-plus"></i></a>
+                </div>
+            </div>
+        `;
 
+        contenedor.prepend(div);
 
+        const btnCarrito = selectID(`btnAgregar${x.id}`)
+        btnCarrito.addEventListener('click', () => {
+        agregarAlCarrito(x.id)
+        
+    })
+})
+}
+
+const btnDestacado = document.getElementById('btnDestacado')
+
+btnDestacado.addEventListener('click', renderDestacados)
+btnDestacado.addEventListener('click', eliminarID)
+
+// ELIMINO BOTON DE DESTACADO PARA EVITAR LA RECARGA DE PRODUCTOS EN ESA SECCION
+
+function eliminarID(){
+    btnDestacado.outerHTML = ""
+}
 

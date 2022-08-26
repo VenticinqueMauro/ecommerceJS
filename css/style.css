@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,100;1,200;1,300;1,500;1,600;1,700;1,900&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
-}
+}   
 
 .marquee {
     height: 25px;
@@ -40,6 +46,14 @@ body {
 
 /* BOTON AGREGAR AL CARRITO */
 
+.fa-heart-circle-plus{
+    transition: 400ms;
+}
+
+.fa-heart-circle-plus:hover{
+    transform: scale(1.2);
+}
+
 .btnProductos {
     z-index: 1;
     position: relative;
@@ -49,7 +63,7 @@ body {
     padding: 0.5em 1em;
     outline: none;
     border: none;
-    background-color: #F10088;
+    background-color: #212529;
 }
 
 .btnProductos:hover {
@@ -64,7 +78,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    border: 4px solid #F10088;
+    border: 4px solid #ffc107;
     transform-origin: center;
     transform: scale(1);
 }
@@ -79,12 +93,12 @@ body {
 /* BOTON FILTRO X CATEGORIA  */
 
 .dropdown-item:hover {
-    background-color: #F10088;
+    background-color: #ffc107;
     color: #fff;
 }
 
 .dropdown-item:active {
-    background-color: #F10088;
+    background-color: #ffc107;
     color: #fff;
 }
 
@@ -117,7 +131,7 @@ body {
 
 span {
     position: absolute;
-    background-color: #F10088;
+    background-color: #ffc107;
     transition: transform 0.5s ease;
 }
 
@@ -181,7 +195,10 @@ span {
 
 /* NAVBAR */
 
-
+.navbar {
+    background-color: #7d7d7d1c;
+    box-shadow: 0px 0px 10px #7d7d7d;
+}
 
 .linkNav {
     position: relative;
@@ -204,6 +221,16 @@ span {
     transform: translate(-50%, 0) scaleX(1);
 }
 
+/* MARCAS */
+
+.marcas{
+    transition: 400ms;
+}
+
+.marcas:hover{
+    transform: scale(1.1);
+}
+
 /* FILTRO  */
 
 .filtro {
@@ -213,6 +240,24 @@ span {
 
 /* FOOTER  */
 
+.pFooter{
+    font-size: 14px;
+    color: #7d7d7d;
+    transition: 400ms;
+}
+
+.pFooter:hover{
+    color: #fff;
+}
+
+.maps{
+    color: #7d7d7d;
+    transition: 400ms;
+}
+
+.maps:hover{
+    color: #fff;
+}
 
 .iconRed {
     padding-left: 10px;
@@ -229,4 +274,24 @@ span {
     padding: 0px 5px;
 }
 
+.destacado{
+    height: 400px;
+    text-align: center;
+    background-image: url('../img/luzdest.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #fff;
+    text-shadow: 0px 0px 5px #7d7d7d;
+}
 
+.btnDest{
+    margin-top: 210px;
+}
+
+.containerDestacado{
+    background: rgb(0,0,0);
+    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(18,95,153,0) 0%, rgba(0,0,0,1) 100%);
+    box-shadow: 0px 0px 5px #000;
+
+}

@@ -18,7 +18,7 @@
         <p>Gral Paz 969 Depto 303 San Miguel de Tucuman <b class="spanMarquee">|</b> 20% Off en Efectivo <b
                 class="spanMarquee">|</b> Envios a todo el pais</p>
     </marquee>
-    <nav class="navbar navbar-expand-lg bg-transparent">
+    <nav class="navbar navbar-expand-lg sticky-top" >
         <div class="container">
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,7 +32,7 @@
                         <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item linkNav">
-                        <a id="nosotros" type="button" class="nav-link" >Nosotros</a>
+                        <a id="nosotros" type="button" class="nav-link">Nosotros</a>
                     </li>
                     <li class="nav-item dropdown linkNav">
                         <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
@@ -43,24 +43,26 @@
                             <li><a href="" class="dropdown-item" onclick="createCards(productos)">Todos</a></li>
                         </ul>
                     </li>
-                    <li id="contacto" class="nav-item linkNav" >
+                    <li id="contacto" class="nav-item linkNav">
                         <a id="contactoNavBar" class="nav-link " type="button" data-bs-toggle="modal"
-                            data-bs-target="#contactos" >Contacto</a>
+                            data-bs-target="#contactos">Contacto</a>
                     </li>
-
                     <div class="modal fade" id="contactos" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
-                            <form id="form" action="https://formspree.io/f/moqbvelg" method="POST" onsubmit="handleSubmit()">
+                            <form id="form" action="https://formspree.io/f/moqbvelg" method="POST"
+                                onsubmit="handleSubmit()">
                                 <div class="modal-content">
                                     <div class="modal-header d-block mx-auto ">
                                         <h3 class="text-center">Contacto!</h3>
-                                        <img src="img/mail.gif" alt="Email" class="modal-title" id="exampleModalLabel" width="200">
+                                        <img src="img/mail.gif" alt="Email" class="modal-title" id="exampleModalLabel"
+                                            width="200">
                                     </div>
-                                    <div class="modal-body" >
+                                    <div class="modal-body">
                                         <div class="mb-3 text-start containerName">
                                             <label class="form-label"></label>
-                                            <input id="inputNombre" type="name" class="inputName" placeholder="Alias" required>
+                                            <input id="inputNombre" type="name" class="inputName" placeholder="Alias"
+                                                required>
                                             <span class="bottom"></span>
                                             <span class="right"></span>
                                             <span class="top"></span>
@@ -79,8 +81,8 @@
                                         <div id="inputEmailError" class="text-danger h6"></div>
                                         <div class="mb-3 text-start containerName" style="margin-top: 15px;">
                                             <label class="form-label"></label>
-                                            <textarea id="textArea" class="inputName" rows="3"
-                                                placeholder="Mensaje" name="message" required></textarea>
+                                            <textarea id="textArea" class="inputName" rows="3" placeholder="Mensaje"
+                                                name="message" required></textarea>
                                             <span class="bottom"></span>
                                             <span class="right"></span>
                                             <span class="top"></span>
@@ -89,33 +91,37 @@
                                         <div id="textAreaError" class="text-danger h6"></div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" onclick="validarFormContacto()" style="background-color:#F10088; border: solid #F10088;"><i id="botonEnviar"  class="fa-solid fa-paper-plane"  ></i> Enviar!</button>
-                                        <button type="button" class="btn btn-danger"
-                                            data-bs-dismiss="modal"><i class="fa-solid fa-xmark"></i></button>
+                                        <button type="submit" class="btn btn-primary" onclick="validarFormContacto()"
+                                            style="background-color:#212529; border: solid #212529;"><i id="botonEnviar"
+                                                class="fa-solid fa-paper-plane"></i> Enviar!</button>
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i
+                                                class="fa-solid fa-xmark"></i></button>
                                     </div>
                                 </div>
-                            </form>    
+                            </form>
                         </div>
                     </div>
-
                 </ul>
             </div>
             <form class="d-flex" role="search">
-                <input id="buscador" class="form-control me-5 text-center" type="text" placeholder="Buscar"
+                <input id="buscador" class="form-control me-5 text-center bg-transparent" type="text" placeholder="Buscar"
                     style="width: 130px;">
             </form>
-            <a type="button" class="float-end position-relative p-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a type="button" class="float-end position-relative p-2" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
                 <i class="fa-solid fa-cart-shopping h2 text-dark "></i>
                 <span id="cantidadProductos"
-                class="position-absolute top-0 start-100 translate-middle badge rounded-pill " style="background-color:#ffc107; border: solid #ffc107;">
-                +
-            </span>
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill "
+                    style="background-color:#ffc107; border: solid #ffc107;">
+                    +
+                </span>
             </a>
         </div>
     </nav>
+
+    <!-- CARRITO  -->
+
     <div id="contenedorCarrito" class="container mt-3">
-
-
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -137,7 +143,8 @@
                                     <h3 class="h5">Total: <b>$<b id="totalPagar">0</b></b></h3>
                                 </div>
                                 <div class="col-4 text-end p-2">
-                                    <button type="button" class="btn text-white" style="background-color: #3ea700;">Comprar <i
+                                    <button type="button" class="btn text-white"
+                                        style="background-color: #3ea700;">Comprar <i
                                             class="fa-brands fa-shopify"></i></button>
                                 </div>
                             </div>
@@ -148,7 +155,52 @@
         </div>
     </div>
 
-    <main class="container">
+    <!-- BANNER  -->
+
+    <div >
+        <img src="img/banner1.png" alt="banner" class="w-100" style="box-shadow: 0px 0px 10px #000;">
+    </div>
+
+    <!-- MARCAS -->
+
+    <div class="container-fluid " style="box-shadow: 0px 0px 10px #7d7d7d">
+        <div class="row text-center mt-3 p-2">
+            <div class="col-4 col-md-2 marcas"><img src="img/marcas/1.png" alt="" width="100"></div>
+            <div class="col-4 col-md-2 marcas"><img src="img/marcas/2.png" alt="" width="100"></div>
+            <div class="col-4 col-md-2 marcas"><img src="img/marcas/3.png" alt="" width="100"></div>
+            <div class="col-4 col-md-2 marcas"><img src="img/marcas/4.png" alt="" width="100"></div>
+            <div class="col-4 col-md-2 marcas"><img src="img/marcas/5.png" alt="" width="100"></div>
+            <div class="col-4 col-md-2 marcas"><img src="img/marcas/6.png" alt="" width="100"></div>
+        </div>
+    </div>
+
+    <!-- DESTACADO  -->
+
+    <div class="container-fluid containerDestacado" >
+        <div class="row p-5 mt-3 ">
+            <div class="col-sm-6 text-center d-block my-auto destacado">
+                <div class="mt-5" style="margin-top: 300px;">
+                    <h2 style="font-size: 50px; font-weight: bold;" >DESTACADOS</h2>
+                    <button id="btnDestacado" class="btn btn-dark btnDest" style="font-weight: bold;">Click! <i class="fa-solid fa-computer-mouse"></i></button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="container">
+                    <div id="destacado" class="row">
+                        
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRODUCTOS -->
+
+    <main class="container">    
+        <h2 class="text-center mt-5" style="font-size: 60px; font-weight:bold;">CATALOGO ONLINE</h2>
         <div id="contenedor-productos" class="row">
 
         </div>
@@ -158,21 +210,31 @@
         class="botn__whatsapp" target="_blank"><i class="fa-brands fa-whatsapp botn__whatsapp-logo"></i></a>
 
 
-    <footer class="container-fluid mt-5 bg-dark text-white text-center" >
-        <div class="row bg-dark" >
-            <div class="col-4"></div>
-            <div class="col-4 p-5 h4 redes">
-                <a href="https://github.com/VenticinqueMauro" target="_blank" class="btnRedes"><i class="iconRed fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/mauro-venticinque-39a256235/" target="_blank" class="btnRedes"><i class="iconRed fa-brands fa-linkedin-in"></i></a>
-                <a href="https://twitter.com/VenticinqueMa" target="_blank" class="btnRedes"><i class="iconRed fa-brands fa-twitter"></i></a>
-                <a href="mailto:venticinque.mauro@hotmail.com"  class="btnRedes"><i class="iconRed fa-solid fa-envelope"></i></a>
+    <footer class="container-fluid mt-5 text-white text-center">
+        <div class="wave"></div>
+        <div class="row bg-dark">
+            <div class="col-4 d-block my-auto p-">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1677826881946!2d-65.21543268514905!3d-26.834615283161234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0d5c39dea9%3A0xf48eb9810b067190!2sGral.%20Paz%20969%2C%20T4000%20San%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1661549096752!5m2!1ses!2sar" width="120" height="120" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-4 rounded-circle" ></iframe>
+                <p class="mt-2 maps"><i class="fa-solid fa-location-dot"></i> Gral Paz 969 Depto 303</p>
             </div>
-            <div class="col-4"></div>
-            <div class="row">
-                <div class="col-12 text-center d-block mx-auto">
-                    <p class="text-center" style="color: #7d7a7a;"><i class="fa fa-copyright" aria-hidden="true"> 2022 - Venticinque Mauro | All Rights Reserved</i></p>
-                </div>
+            <div class="col-4 mt-2 h4 redes d-flex align-items-center justify-content-center" >
+                <a href="https://github.com/VenticinqueMauro" target="_blank" class="btnRedes"><i
+                        class="iconRed fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mauro-venticinque-39a256235/" target="_blank" class="btnRedes"><i
+                        class="iconRed fa-brands fa-linkedin-in"></i></a>
+                <a href="https://twitter.com/VenticinqueMa" target="_blank" class="btnRedes"><i
+                        class="iconRed fa-brands fa-twitter"></i></a>
+                <a href="mailto:venticinque.mauro@hotmail.com" class="btnRedes"><i
+                        class="iconRed fa-solid fa-envelope"></i></a>
             </div>
+            <div class="col-4 mx-auto mt-5">
+                <p class="pFooter">Noticias</p>
+                <p class="pFooter">Empleo</p>
+                <p class="pFooter">Inversiones</p>
+                <p class="pFooter">Sustentabilidad</p>
+            </div>
+                    <p class="text-center" style="color: #7d7a7a;"><i class="fa fa-copyright" aria-hidden="true"> 2022 -
+                            Venticinque Mauro | All Rights Reserved</i></p>
         </div>
     </footer>
 
