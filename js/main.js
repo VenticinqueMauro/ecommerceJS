@@ -450,7 +450,7 @@ let destacados = productos.filter(x => x.destacado == true)
 
 
 function renderDestacados(){
-    const contenedor = document.getElementById('destacado')
+    const contenedor = document.getElementById('destacadox')
     destacados.map(x => {
         const div = document.createElement('div')
         div.classList.add('col-md-4', 'renderCard')

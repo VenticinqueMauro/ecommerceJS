@@ -14,11 +14,18 @@
 </head>
 
 <body>
-    <marquee class="marquee" direction="right" scrollamount="10">
+    <div id="bienvenida" class="saludo d-flex align-items-center bg-dark text-white">
+        <div class="textoSaludo d-block mx-auto">
+            <h2 class="text-center text1 mb-5 animate__animated animate__zoomIn animate__delay-1s"><i class="fa-solid fa-graduation-cap" style="font-size: 80px;"></i> Bienvenidos!</h2>
+            <h2 class="text2 animate__animated animate__zoomIn animate__delay-2s">Proyecto Final Ecommerce Js</h2>
+            <button class="btn d-block mx-auto mt-5 text-dark animate__animated animate__zoomIn animate__delay-3s" style="background-color: #ede734; font-weight: 600;">Vamos! </button>
+        </div>
+    </div>
+    <marquee class="marquee" direction="right" scrollamount="8">
         <p>Gral Paz 969 Depto 303 San Miguel de Tucuman <b class="spanMarquee">|</b> 20% Off en Efectivo <b
                 class="spanMarquee">|</b> Envios a todo el pais</p>
     </marquee>
-    <nav class="navbar navbar-expand-lg sticky-top" >
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -40,7 +47,7 @@
                             Productos
                         </a>
                         <ul id="categorias" class="dropdown-menu">
-                            <li><a href="" class="dropdown-item" onclick="createCards(productos)">Todos</a></li>
+                            <li><a href="#main" class="dropdown-item" onclick="createCards(productos)">Todos</a></li>
                         </ul>
                     </li>
                     <li id="contacto" class="nav-item linkNav">
@@ -50,12 +57,11 @@
                     <div class="modal fade" id="contactos" tabindex="-1" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
-                            <form id="form" action="https://formspree.io/f/moqbvelg" method="POST"
-                                onsubmit="handleSubmit()">
+                            <form id="form" action="https://formspree.io/f/moqbvelg" method="POST">
                                 <div class="modal-content">
                                     <div class="modal-header d-block mx-auto ">
                                         <h3 class="text-center">Contacto!</h3>
-                                        <img src="img/mail.gif" alt="Email" class="modal-title" id="exampleModalLabel"
+                                        <img src="img/mail.gif" alt="Email" class="modal-title" ivd="exampleModalLabel"
                                             width="200">
                                     </div>
                                     <div class="modal-body">
@@ -104,8 +110,8 @@
                 </ul>
             </div>
             <form class="d-flex" role="search">
-                <input id="buscador" class="form-control me-5 text-center bg-transparent" type="text" placeholder="Buscar"
-                    style="width: 130px;">
+                <input id="buscador" class="form-control me-5 text-center bg-transparent" type="text"
+                    placeholder="Buscar" style="width: 130px;">
             </form>
             <a type="button" class="float-end position-relative p-2" data-bs-toggle="modal"
                 data-bs-target="#exampleModal">
@@ -157,14 +163,37 @@
 
     <!-- BANNER  -->
 
-    <div >
-        <img src="img/banner1.png" alt="banner" class="w-100" style="box-shadow: 0px 0px 10px #000;">
+    <div>
+        <img src="img/banner1.png" alt="banner" class="w-100" >
+    </div>
+
+    <!-- TENDENCIAS  -->
+
+    <div class="container-fluid bg-dark text-white mt-1">
+        <div class="row p-5">
+            <div class="col-md-12 text-center ">
+                <h2 class="mb-4" style="font-size: 40px; font-weight: bold; text-shadow:0px 0px 5px #7d7d7d;">Tendencias en la Moda</h2>
+            </div>
+            <div class="col-md-6 mt-4 bg-dark text-center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/p3x0a6iVQyg"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen class="d-block m-auto mb-3" style="box-shadow:0px 0px 10px #fff;"></iframe>
+            </div>
+            <div class="col-md-6 mt-4 bg-dark text-center">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/gTFf-aZuen8"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen class="d-block m-auto mb-3" style="box-shadow:0px 0px 10px #fff;"></iframe>
+            </div>
+        </div>
     </div>
 
     <!-- MARCAS -->
 
-    <div class="container-fluid " style="box-shadow: 0px 0px 10px #7d7d7d">
-        <div class="row text-center mt-3 p-2">
+    <marquee class="container-fluid p-3 mt-1" direction="right" scrollamount="5" style="background-color: #ede734;">
+
+        <div class="row text-center">
             <div class="col-4 col-md-2 marcas"><img src="img/marcas/1.png" alt="" width="100"></div>
             <div class="col-4 col-md-2 marcas"><img src="img/marcas/2.png" alt="" width="100"></div>
             <div class="col-4 col-md-2 marcas"><img src="img/marcas/3.png" alt="" width="100"></div>
@@ -172,34 +201,33 @@
             <div class="col-4 col-md-2 marcas"><img src="img/marcas/5.png" alt="" width="100"></div>
             <div class="col-4 col-md-2 marcas"><img src="img/marcas/6.png" alt="" width="100"></div>
         </div>
-    </div>
+    </marquee>
 
     <!-- DESTACADO  -->
 
-    <div class="container-fluid containerDestacado" >
-        <div class="row p-5 mt-3 ">
+    <div class="container-fluid containerDestacado p-5">
+        <div class="row">
             <div class="col-sm-6 text-center d-block my-auto destacado">
                 <div class="mt-5" style="margin-top: 300px;">
-                    <h2 style="font-size: 50px; font-weight: bold;" >DESTACADOS</h2>
-                    <button id="btnDestacado" class="btn btn-dark btnDest" style="font-weight: bold;">Click! <i class="fa-solid fa-computer-mouse"></i></button>
+                    <h2 style="font-size: 50px; font-weight: bold;">DESTACADOS</h2>
+                    <button id="btnDestacado" class="btn btn-dark btnDest" style="font-weight: bold;">Click! <i
+                            class="fa-solid fa-computer-mouse"></i></button>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="container">
-                    <div id="destacado" class="row">
-                        
-                            
-                        </div>
-                        
+                    <div id="destacadox" class="row">
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 
     <!-- PRODUCTOS -->
 
-    <main class="container">    
+    <main id="main" class="container">
         <h2 class="text-center mt-5" style="font-size: 60px; font-weight:bold;">CATALOGO ONLINE</h2>
         <div id="contenedor-productos" class="row">
 
@@ -214,10 +242,13 @@
         <div class="wave"></div>
         <div class="row bg-dark">
             <div class="col-4 d-block my-auto p-">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1677826881946!2d-65.21543268514905!3d-26.834615283161234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0d5c39dea9%3A0xf48eb9810b067190!2sGral.%20Paz%20969%2C%20T4000%20San%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1661549096752!5m2!1ses!2sar" width="120" height="120" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="mt-4 rounded-circle" ></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.1677826881946!2d-65.21543268514905!3d-26.834615283161234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94225c0d5c39dea9%3A0xf48eb9810b067190!2sGral.%20Paz%20969%2C%20T4000%20San%20Miguel%20de%20Tucum%C3%A1n%2C%20Tucum%C3%A1n!5e0!3m2!1ses!2sar!4v1661549096752!5m2!1ses!2sar"
+                    width="120" height="120" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="mt-4 rounded-circle"></iframe>
                 <p class="mt-2 maps"><i class="fa-solid fa-location-dot"></i> Gral Paz 969 Depto 303</p>
             </div>
-            <div class="col-4 mt-2 h4 redes d-flex align-items-center justify-content-center" >
+            <div class="col-4 mt-2 h4 redes d-flex align-items-center justify-content-center">
                 <a href="https://github.com/VenticinqueMauro" target="_blank" class="btnRedes"><i
                         class="iconRed fa-brands fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/mauro-venticinque-39a256235/" target="_blank" class="btnRedes"><i
@@ -233,8 +264,8 @@
                 <p class="pFooter">Inversiones</p>
                 <p class="pFooter">Sustentabilidad</p>
             </div>
-                    <p class="text-center" style="color: #7d7a7a;"><i class="fa fa-copyright" aria-hidden="true"> 2022 -
-                            Venticinque Mauro | All Rights Reserved</i></p>
+            <p class="text-center" style="color: #7d7a7a;"><i class="fa fa-copyright" aria-hidden="true"> 2022 -
+                    Venticinque Mauro | All Rights Reserved</i></p>
         </div>
     </footer>
 

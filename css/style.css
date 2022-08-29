@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,100;1,200;1,300;1,500;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;400;600;800;900&display=swap');
+
 
 * {
     margin: 0;
@@ -8,7 +10,28 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-}   
+}
+
+/* SALUDO */
+
+#bienvenida{
+    overflow: hidden;
+}
+    
+.saludo{
+    width: 100%;
+    min-height: 100vh;
+    /* background: url('../img/Mujer\ -\ 43606.mp4'); */
+    /* background-color: red; */
+}
+
+.text1, .text2 {
+    font-family: 'Inconsolata', monospace;
+    font-weight: 900;
+    font-size: 60px ;
+}
+
+/* HEADER  */
 
 .marquee {
     height: 25px;
@@ -46,11 +69,11 @@ body {
 
 /* BOTON AGREGAR AL CARRITO */
 
-.fa-heart-circle-plus{
+.fa-heart-circle-plus {
     transition: 400ms;
 }
 
-.fa-heart-circle-plus:hover{
+.fa-heart-circle-plus:hover {
     transform: scale(1.2);
 }
 
@@ -196,8 +219,9 @@ span {
 /* NAVBAR */
 
 .navbar {
-    background-color: #7d7d7d1c;
-    box-shadow: 0px 0px 10px #7d7d7d;
+    height: 80px;
+    background-color: #bbbbbb1c;
+    /* box-shadow: 0px 0px 10px #7d7d7d; */
 }
 
 .linkNav {
@@ -221,13 +245,19 @@ span {
     transform: translate(-50%, 0) scaleX(1);
 }
 
+.modal-backdrop {
+
+    z-index: 99;
+
+}
+
 /* MARCAS */
 
-.marcas{
+.marcas {
     transition: 400ms;
 }
 
-.marcas:hover{
+.marcas:hover {
     transform: scale(1.1);
 }
 
@@ -240,22 +270,22 @@ span {
 
 /* FOOTER  */
 
-.pFooter{
+.pFooter {
     font-size: 14px;
     color: #7d7d7d;
     transition: 400ms;
 }
 
-.pFooter:hover{
+.pFooter:hover {
     color: #fff;
 }
 
-.maps{
+.maps {
     color: #7d7d7d;
     transition: 400ms;
 }
 
-.maps:hover{
+.maps:hover {
     color: #fff;
 }
 
@@ -274,7 +304,9 @@ span {
     padding: 0px 5px;
 }
 
-.destacado{
+/* DESTACADO */
+
+.destacado {
     height: 400px;
     text-align: center;
     background-image: url('../img/luzdest.png');
@@ -285,13 +317,12 @@ span {
     text-shadow: 0px 0px 5px #7d7d7d;
 }
 
-.btnDest{
+.btnDest {
     margin-top: 210px;
 }
 
-.containerDestacado{
-    background: rgb(0,0,0);
-    background: linear-gradient(270deg, rgba(0,0,0,1) 0%, rgba(18,95,153,0) 0%, rgba(0,0,0,1) 100%);
+.containerDestacado {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(18, 95, 153, 0) 0%, rgba(0, 0, 0, 1) 100%);
     box-shadow: 0px 0px 5px #000;
-
 }
