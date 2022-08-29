@@ -10,13 +10,20 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 /* SALUDO */
 
 #bienvenida{
     overflow-x: hidden;
+    z-index: 100;
 }
+
+.invisible{
+    display: none;
+}
+
     
 .saludo{
     width: 100%;
@@ -269,6 +276,10 @@ span {
 }
 
 /* FOOTER  */
+
+.footerContainer{
+    height: 1320px;
+}
 
 .pFooter {
     font-size: 14px;

@@ -164,6 +164,7 @@ const bienvenida = document.getElementById('bienvenida')
 const btnBienvenida = document.getElementById('btnBienvenida')
 
 function borrarPresentacion(){
+    bienvenida.classList.add('invisible')
     bienvenida.outerHTML = ""
 }
 
