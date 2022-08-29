@@ -159,6 +159,19 @@ function selectID(id) {
     return document.getElementById(id);
 }
 
+// PRESENTACION
+const bienvenida = document.getElementById('bienvenida')
+const btnBienvenida = document.getElementById('btnBienvenida')
+
+function borrarPresentacion(){
+    bienvenida.outerHTML = ""
+}
+
+btnBienvenida.addEventListener('click', borrarPresentacion)
+
+
+//////////////////
+    
 const documento = document;
 const contenedor = selectID('contenedor-productos')
 const contenedorCarrito = selectID('contenedorCarrito')
@@ -209,6 +222,8 @@ function createCards(array) {
         })
     })
 }
+
+
 
 // RENDERIZO PRODUCTOS
 
