@@ -13,30 +13,6 @@ body {
     overflow-x: hidden;
 }
 
-/* SALUDO */
-
-#bienvenida{
-    overflow-x: hidden;
-    z-index: 100;
-}
-
-.invisible{
-    display: none;
-}
-
-    
-.saludo{
-    width: 100%;
-    min-height: 100vh;
-    /* background: url('../img/Mujer\ -\ 43606.mp4'); */
-    /* background-color: red; */
-}
-
-.text1, .text2 {
-    font-family: 'Inconsolata', monospace;
-    font-weight: 900;
-    font-size: 60px ;
-}
 
 /* HEADER  */
 

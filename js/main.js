@@ -159,16 +159,6 @@ function selectID(id) {
     return document.getElementById(id);
 }
 
-// PRESENTACION
-const bienvenida = document.getElementById('bienvenida')
-const btnBienvenida = document.getElementById('btnBienvenida')
-
-function borrarPresentacion(){
-    bienvenida.classList.add('invisible')
-    bienvenida.outerHTML = ""
-}
-
-btnBienvenida.addEventListener('click', borrarPresentacion)
 
 
 //////////////////
@@ -203,7 +193,7 @@ function createCards(array) {
         const div = document.createElement('div')
         div.classList.add('col', 'col-md-3', 'renderCard')
         div.innerHTML = `
-            <div class="card mt-4 p-1 border-0 mx-auto producto" style="width: 15rem;">
+            <div class="card mt-4 p-1 border-0 mx-auto producto " style="width: 15rem;"> 
                 <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
                 <div class="card-body text-center ">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
@@ -471,7 +461,7 @@ function renderDestacados(){
         const div = document.createElement('div')
         div.classList.add('col-md-4', 'renderCard')
         div.innerHTML = `
-            <div class="card mt-4 p-1 border-0 mx-auto producto" style="width: 14rem; box-shadow:0px 0px 10px #000;" >
+            <div class="card mt-4 p-1 border-0 mx-auto producto animate__animated animate__backInLeft" style="width: 14rem; box-shadow:0px 0px 10px #000;" >
                 <img src="${x.img}" class="card-img-top mx-auto d-block w-55" alt="${x.categoria}" >
                 <div class="card-body text-center ">
                     <h5 class="card-title">${x.categoria}-${x.marca}</h5>
